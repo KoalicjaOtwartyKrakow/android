@@ -8,4 +8,6 @@
     <string name="description">opis mieszkania</string>
     <string name="places_amount">ilość miejść</string>
     <string name="county_name">wojewodztwo</string>
+    <string name="city">miasto</string>
+    <string name="button">wyślij</string>
 </resources>
