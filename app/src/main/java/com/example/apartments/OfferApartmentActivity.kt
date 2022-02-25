@@ -29,19 +29,17 @@ class OfferApartmentActivity : AppCompatActivity() {
 
             val service: ApartmentService = retrofit.create(ApartmentService::class.java)
 
-            val apartmentsListCall: Call<List<ApartmentDTO>> = service.listApartments()
-            getApartmentsList(apartmentsListCall, textView)
-            // val apartmentsList: Call<ApartmentDTO> = service.postAnApartment(ApartmentDTO())
-            // textView.setText(apartmentList.toString())
+            getApartmentsList(service, textView)
         }
 
 
     }
 
     private fun getApartmentsList(
-        apartmentsListCall: Call<List<ApartmentDTO>>,
+        service: ApartmentService,
         textView: TextView
     ) {
+        val apartmentsListCall: Call<List<ApartmentDTO>> = service.listApartments()
         apartmentsListCall.enqueue(object : Callback<List<ApartmentDTO>> {
 
             override fun onResponse(
@@ -52,6 +50,27 @@ class OfferApartmentActivity : AppCompatActivity() {
             }
 
             override fun onFailure(call: Call<List<ApartmentDTO>>, t: Throwable) {
+                TODO("Not yet implemented")
+            }
+        })
+    }
+
+    private fun postAnApartment(
+        service: ApartmentService,
+        textView: TextView,
+        apartment: ApartmentDTO
+    ) {
+        val postApartmentCall: Call<ApartmentDTO> = service.postAnApartment(apartment)
+        postApartmentCall.enqueue(object : Callback<ApartmentDTO> {
+
+            override fun onResponse(
+                call: Call<ApartmentDTO>,
+                response: Response<ApartmentDTO>
+            ) {
+                textView.setText(response.body().toString())
+            }
+
+            override fun onFailure(call: Call<ApartmentDTO>, t: Throwable) {
                 TODO("Not yet implemented")
             }
         })
