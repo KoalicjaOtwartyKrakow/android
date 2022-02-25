@@ -3,15 +3,19 @@ package com.example.apartments
 import android.os.Bundle
 import android.widget.Button
 import android.widget.TextView
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import com.google.gson.Gson
+import com.google.gson.JsonObject
+import okhttp3.MediaType.Companion.toMediaTypeOrNull
+import okhttp3.RequestBody
+import org.json.JSONObject
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
-
+const val CONTENT_MEDIA_TYPE = "application/json"
 class OfferApartmentActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -29,10 +33,12 @@ class OfferApartmentActivity : AppCompatActivity() {
 
             val service: ApartmentService = retrofit.create(ApartmentService::class.java)
 
-            getApartmentsList(service, textView)
+            val apartment = ApartmentDTO()
+                apartment.LANDLORD_NAME = landlordName.text.toString()
+                apartment.ST_NAME = landlordName.text.toString()
+
+            postAnApartment(service, textView, apartment)
         }
-
-
     }
 
     private fun getApartmentsList(
@@ -60,19 +66,29 @@ class OfferApartmentActivity : AppCompatActivity() {
         textView: TextView,
         apartment: ApartmentDTO
     ) {
-        val postApartmentCall: Call<ApartmentDTO> = service.postAnApartment(apartment)
-        postApartmentCall.enqueue(object : Callback<ApartmentDTO> {
+        val postApartmentCall: Call<String> = service.postAnApartment(apartment)
+        postApartmentCall.enqueue(object : Callback<String> {
 
             override fun onResponse(
-                call: Call<ApartmentDTO>,
-                response: Response<ApartmentDTO>
+                call: Call<String>,
+                response: Response<String>
             ) {
-                textView.setText(response.body().toString())
+                try {
+                    textView.setText(response.body().toString())
+                } catch (e: Exception) {
+                    e.printStackTrace()
+                }
+
             }
 
-            override fun onFailure(call: Call<ApartmentDTO>, t: Throwable) {
-                TODO("Not yet implemented")
+            override fun onFailure(call: Call<String>, t: Throwable) {
+                println(t.localizedMessage)
             }
         })
     }
+
+    data class ApartmentData(
+        val LANDLORD_PHONE: String,
+        val ST_NAME: String
+    )
 }

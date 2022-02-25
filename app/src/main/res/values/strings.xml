@@ -3,4 +3,9 @@
     <string name="title_activity_offer">Zaproponuj mieszkanie</string>
     <string name="name">imie i nazwisko</string>
     <string name="landlord_street">ulica</string>
+    <string name="landlord_email">email</string>
+    <string name="landlord_phone">telefon</string>
+    <string name="description">opis mieszkania</string>
+    <string name="places_amount">ilość miejść</string>
+    <string name="county_name">wojewodztwo</string>
 </resources>
