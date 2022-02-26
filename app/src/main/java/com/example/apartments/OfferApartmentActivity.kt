@@ -1,6 +1,7 @@
 package com.example.apartments
 
 import android.os.Bundle
+import android.text.TextUtils
 import android.util.Log
 import android.widget.ArrayAdapter
 import android.widget.Button
@@ -48,13 +49,43 @@ class OfferApartmentActivity : AppCompatActivity() {
 
             val service: ApartmentService = retrofit.create(ApartmentService::class.java)
 
+            //validation
+            if (TextUtils.isEmpty(landlordName.getText())) {
+                landlordName.setError("uzupełnij proszę to pole")
+            }
+            if (TextUtils.isEmpty(city.getText())) {
+                city.setError("uzupełnij proszę to pole")
+            }
+            if (TextUtils.isEmpty(landlord_street.getText())) {
+                landlord_street.setError("uzupełnij proszę to pole")
+            }
+            if (TextUtils.isEmpty(landlord_street_number.getText())) {
+                landlord_street_number.setError("uzupełnij proszę to pole")
+            }
+            if (TextUtils.isEmpty(landlord_phone.getText())) {
+                landlord_phone.setError("uzupełnij proszę to pole")
+            }
+            if (TextUtils.isEmpty(landlord_email.getText())) {
+                landlord_email.setError("uzupełnij proszę to pole")
+            }
+            if (TextUtils.isEmpty(description.getText())) {
+                description.setError("uzupełnij proszę to pole")
+            }
+            if (TextUtils.isEmpty(places_amount.getText())) {
+                places_amount.setError("uzupełnij proszę to pole")
+            }
+            if (TextUtils.isEmpty(zip.getText())) {
+                zip.setError("uzupełnij proszę to pole")
+            }
+
+            //read fields into DTO
             val apartment = ApartmentDTO()
             apartment.CNT_NAME = countyNameSpinner.getSelectedItem().toString()
             apartment.CITY = city.text.toString()
             apartment.LANDLORD_NAME = landlordName.text.toString()
             apartment.ST_NAME = landlord_street.text.toString()
             apartment.ST_NUM = landlord_street_number.text.toString().toIntOrNull() ?: 0
-            apartment.APT_NUM = landlord_street_number.text.toString().toIntOrNull() ?: 0
+            apartment.APT_NUM = landlord_apt_number.text.toString().toIntOrNull() ?: 0
             apartment.LANDLORD_PHONE = landlord_phone.text.toString()
             apartment.LANDLORD_EMAIL = landlord_email.text.toString()
             apartment.DESCRIPTION = description.text.toString()

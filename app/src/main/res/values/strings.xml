@@ -17,4 +17,5 @@
     <string name="choose">Wybierz akcję</string>
     <string name="volunteerEntryBtn">Jestem koordynatorem</string>
     <string name="LandlordEntryBtn">Chcę zaproponować lokal</string>
+    <string name="landlord_apt_no">Numer mieszkania</string>
 </resources>
