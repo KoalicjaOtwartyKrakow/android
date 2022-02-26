@@ -14,4 +14,7 @@
     <string name="textWstup">Jeśli masz możliwość udostępnienia lokalu mieszkalnego osobie lub rodzinie z Ukrainy, prosimy o wypełnienie formularza. Jeśli masz preferencje co do tego kogo możesz przyjąć, zaznacz to proszę w opisie miejsca zamieszkana. Dziękujemy!</string>
     <string name="landlord_street_no">numer budynku</string>
     <string name="zip">kod pocztowy</string>
+    <string name="choose">Wybierz akcję</string>
+    <string name="volunteerEntryBtn">Jestem koordynatorem</string>
+    <string name="LandlordEntryBtn">Chcę zaproponować lokal</string>
 </resources>

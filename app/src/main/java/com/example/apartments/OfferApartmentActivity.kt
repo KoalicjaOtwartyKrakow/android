@@ -1,6 +1,7 @@
 package com.example.apartments
 
 import android.os.Bundle
+import android.util.Log
 import android.widget.ArrayAdapter
 import android.widget.Button
 import android.widget.Spinner
@@ -20,8 +21,7 @@ class OfferApartmentActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_offer_apartment)
 
-        val button: Button = findViewById(R.id.button_id)
-        val textView: TextView = findViewById(R.id.text_view_id)
+
         val countyNameSpinner: Spinner = findViewById(R.id.county_name)
         countyNameSpinner.adapter = ArrayAdapter<Voivodeship>(
             this,
@@ -38,6 +38,7 @@ class OfferApartmentActivity : AppCompatActivity() {
         val places_amount: TextView = findViewById(R.id.places_amount)
         val zip: TextView = findViewById(R.id.zip)
 
+        val button: Button = findViewById(R.id.button_id)
         button.setOnClickListener {
             val retrofit = Retrofit.Builder()
                 .baseUrl("https://cu2kg3w6c1.execute-api.eu-west-1.amazonaws.com/")
@@ -58,7 +59,7 @@ class OfferApartmentActivity : AppCompatActivity() {
             apartment.PLACES_NUM = places_amount.text.toString().toIntOrNull() ?: 0
             apartment.ZIP = zip.text.toString()
 
-            postAnApartment(service, textView, apartment)
+            postAnApartment(service, apartment)
         }
     }
 
@@ -84,7 +85,6 @@ class OfferApartmentActivity : AppCompatActivity() {
 
     private fun postAnApartment(
         service: ApartmentService,
-        textView: TextView,
         apartment: ApartmentDTO
     ) {
         val postApartmentCall: Call<ApartmentDTO> = service.postAnApartment(apartment)
@@ -95,7 +95,7 @@ class OfferApartmentActivity : AppCompatActivity() {
                 response: Response<ApartmentDTO>
             ) {
                 try {
-                    textView.setText(response.body().toString())
+                    Log.d("Response", response.body().toString());
                 } catch (e: Exception) {
                     e.printStackTrace()
                 }
