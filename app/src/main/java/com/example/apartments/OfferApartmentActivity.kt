@@ -1,7 +1,9 @@
 package com.example.apartments
 
 import android.os.Bundle
+import android.widget.ArrayAdapter
 import android.widget.Button
+import android.widget.Spinner
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import retrofit2.Call
@@ -9,6 +11,7 @@ import retrofit2.Callback
 import retrofit2.Response
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
+
 
 const val CONTENT_MEDIA_TYPE = "application/json"
 
@@ -19,7 +22,12 @@ class OfferApartmentActivity : AppCompatActivity() {
 
         val button: Button = findViewById(R.id.button_id)
         val textView: TextView = findViewById(R.id.text_view_id)
-        val countyName: TextView = findViewById(R.id.county_name)
+        val countyNameSpinner: Spinner = findViewById(R.id.county_name)
+        countyNameSpinner.adapter = ArrayAdapter<Voivodeship>(
+            this,
+            android.R.layout.simple_spinner_item,
+            Voivodeship.values()
+        )
         val city: TextView = findViewById(R.id.city)
         val landlordName: TextView = findViewById(R.id.landlord_name)
         val landlord_street: TextView = findViewById(R.id.landlord_street)
@@ -39,7 +47,7 @@ class OfferApartmentActivity : AppCompatActivity() {
             val service: ApartmentService = retrofit.create(ApartmentService::class.java)
 
             val apartment = ApartmentDTO()
-            apartment.CNT_NAME = countyName.text.toString()
+            apartment.CNT_NAME = countyNameSpinner.getSelectedItem().toString()
             apartment.CITY = city.text.toString()
             apartment.LANDLORD_NAME = landlordName.text.toString()
             apartment.ST_NAME = landlord_street.text.toString()
