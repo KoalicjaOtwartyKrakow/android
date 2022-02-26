@@ -11,7 +11,7 @@
     <string name="city">miasto</string>
     <string name="button">wyślij</string>
     <string name="my_image_description">u-logo</string>
-    <string name="textWstup">Jeśli masz możliwość udostępnienia lokalu mieszkalnego osobie lub rodzinie z Ukrainy, prosimy o wypełnienie formularza. Jeśli masz preferencje co do tego kogo możesz przyjąć, zaznacz to proszę w opisie miejsca zamieszkana. Dziękujemy!</string>
+    <string name="textWstup">Jeśli masz możliwość udostępnienia lokalu mieszkalnego osobie lub rodzinie z Ukrainy, prosimy o wypełnienie formularza. Jeśli masz ograniczenia co do tego kogo możesz przyjąć (np. ludzie ze zwierzętami domowymi), zaznacz to proszę w opisie lokalu. Dziękujemy!</string>
     <string name="landlord_street_no">numer budynku</string>
     <string name="zip">kod pocztowy</string>
     <string name="choose">Wybierz akcję</string>

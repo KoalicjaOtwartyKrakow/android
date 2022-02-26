@@ -32,6 +32,7 @@ class OfferApartmentActivity : AppCompatActivity() {
         val landlordName: TextView = findViewById(R.id.landlord_name)
         val landlord_street: TextView = findViewById(R.id.landlord_street)
         val landlord_street_number: TextView = findViewById(R.id.landlord_street_number)
+        val landlord_apt_number: TextView = findViewById(R.id.landlord_apt_number)
         val landlord_phone: TextView = findViewById(R.id.landlord_phone)
         val landlord_email: TextView = findViewById(R.id.landlord_email)
         val description: TextView = findViewById(R.id.description)
@@ -53,6 +54,7 @@ class OfferApartmentActivity : AppCompatActivity() {
             apartment.LANDLORD_NAME = landlordName.text.toString()
             apartment.ST_NAME = landlord_street.text.toString()
             apartment.ST_NUM = landlord_street_number.text.toString().toIntOrNull() ?: 0
+            apartment.APT_NUM = landlord_street_number.text.toString().toIntOrNull() ?: 0
             apartment.LANDLORD_PHONE = landlord_phone.text.toString()
             apartment.LANDLORD_EMAIL = landlord_email.text.toString()
             apartment.DESCRIPTION = description.text.toString()
