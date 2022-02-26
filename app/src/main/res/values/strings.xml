@@ -5,9 +5,13 @@
     <string name="landlord_street">ulica</string>
     <string name="landlord_email">email</string>
     <string name="landlord_phone">telefon</string>
-    <string name="description">opis mieszkania</string>
+    <string name="description">opis miejsca zamieszkania</string>
     <string name="places_amount">ilość miejść</string>
     <string name="county_name">wojewodztwo</string>
     <string name="city">miasto</string>
     <string name="button">wyślij</string>
+    <string name="my_image_description">u-logo</string>
+    <string name="textWstup">Jeśli masz możliwość udostępnienia lokalu mieszkalnego osobie lub rodzinie z Ukrainy, prosimy o wypełnienie formularza. Jeśli masz preferencje co do tego kogo możesz przyjąć, zaznacz to proszę w opisie miejsca zamieszkana. Dziękujemy!</string>
+    <string name="landlord_street_no">numer budynku</string>
+    <string name="zip">kod pocztowy</string>
 </resources>

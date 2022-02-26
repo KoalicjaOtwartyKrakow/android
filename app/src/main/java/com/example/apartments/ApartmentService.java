@@ -14,5 +14,5 @@ public interface ApartmentService {
     Call<List<ApartmentDTO>> listApartments();
 
     @POST("/dev/apartments")
-    Call<String> postAnApartment(@Body ApartmentDTO apartmentDTO);
+    Call<ApartmentDTO> postAnApartment(@Body ApartmentDTO apartmentDTO);
 }

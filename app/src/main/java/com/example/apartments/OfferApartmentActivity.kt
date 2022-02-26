@@ -4,11 +4,6 @@ import android.os.Bundle
 import android.widget.Button
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
-import com.google.gson.Gson
-import com.google.gson.JsonObject
-import okhttp3.MediaType.Companion.toMediaTypeOrNull
-import okhttp3.RequestBody
-import org.json.JSONObject
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -16,6 +11,7 @@ import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
 const val CONTENT_MEDIA_TYPE = "application/json"
+
 class OfferApartmentActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -23,8 +19,17 @@ class OfferApartmentActivity : AppCompatActivity() {
 
         val button: Button = findViewById(R.id.button_id)
         val textView: TextView = findViewById(R.id.text_view_id)
+        val countyName: TextView = findViewById(R.id.county_name)
+        val city: TextView = findViewById(R.id.city)
         val landlordName: TextView = findViewById(R.id.landlord_name)
-        val landlordStreet: TextView = findViewById(R.id.landlord_street)
+        val landlord_street: TextView = findViewById(R.id.landlord_street)
+        val landlord_street_number: TextView = findViewById(R.id.landlord_street_number)
+        val landlord_phone: TextView = findViewById(R.id.landlord_phone)
+        val landlord_email: TextView = findViewById(R.id.landlord_email)
+        val description: TextView = findViewById(R.id.description)
+        val places_amount: TextView = findViewById(R.id.places_amount)
+        val zip: TextView = findViewById(R.id.zip)
+
         button.setOnClickListener {
             val retrofit = Retrofit.Builder()
                 .baseUrl("https://cu2kg3w6c1.execute-api.eu-west-1.amazonaws.com/")
@@ -34,8 +39,16 @@ class OfferApartmentActivity : AppCompatActivity() {
             val service: ApartmentService = retrofit.create(ApartmentService::class.java)
 
             val apartment = ApartmentDTO()
-                apartment.LANDLORD_NAME = landlordName.text.toString()
-                apartment.ST_NAME = landlordName.text.toString()
+            apartment.CNT_NAME = countyName.text.toString()
+            apartment.CITY = city.text.toString()
+            apartment.LANDLORD_NAME = landlordName.text.toString()
+            apartment.ST_NAME = landlord_street.text.toString()
+            apartment.ST_NUM = landlord_street_number.text.toString().toIntOrNull() ?: 0
+            apartment.LANDLORD_PHONE = landlord_phone.text.toString()
+            apartment.LANDLORD_EMAIL = landlord_email.text.toString()
+            apartment.DESCRIPTION = description.text.toString()
+            apartment.PLACES_NUM = places_amount.text.toString().toIntOrNull() ?: 0
+            apartment.ZIP = zip.text.toString()
 
             postAnApartment(service, textView, apartment)
         }
@@ -66,12 +79,12 @@ class OfferApartmentActivity : AppCompatActivity() {
         textView: TextView,
         apartment: ApartmentDTO
     ) {
-        val postApartmentCall: Call<String> = service.postAnApartment(apartment)
-        postApartmentCall.enqueue(object : Callback<String> {
+        val postApartmentCall: Call<ApartmentDTO> = service.postAnApartment(apartment)
+        postApartmentCall.enqueue(object : Callback<ApartmentDTO> {
 
             override fun onResponse(
-                call: Call<String>,
-                response: Response<String>
+                call: Call<ApartmentDTO>,
+                response: Response<ApartmentDTO>
             ) {
                 try {
                     textView.setText(response.body().toString())
@@ -81,7 +94,7 @@ class OfferApartmentActivity : AppCompatActivity() {
 
             }
 
-            override fun onFailure(call: Call<String>, t: Throwable) {
+            override fun onFailure(call: Call<ApartmentDTO>, t: Throwable) {
                 println(t.localizedMessage)
             }
         })

@@ -12,20 +12,29 @@
         app:layout_constraintTop_toTopOf="parent"
         android:id="@+id/form">
 
+        <TextView
+            android:id="@+id/text_id"
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:text="@string/textWstup"
+            android:layout_margin="30dp"
+            app:layout_constraintTop_toTopOf="parent"
+            />
+
         <EditText
             android:id="@+id/county_name"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
             android:hint="@string/county_name"
             app:layout_constraintHorizontal_bias="0.184"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toBottomOf="@+id/text_id" />
 
         <EditText
             android:id="@+id/city"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
             android:hint="@string/city"
@@ -36,7 +45,7 @@
 
         <EditText
             android:id="@+id/landlord_name"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
             android:hint="@string/name"
@@ -47,7 +56,7 @@
 
         <EditText
             android:id="@+id/landlord_street"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
             android:hint="@string/landlord_street"
@@ -55,21 +64,42 @@
             app:layout_constraintHorizontal_bias="0.184"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/landlord_name" />
-
         <EditText
-            android:id="@+id/landlord_phone"
-            android:layout_width="wrap_content"
+            android:id="@+id/landlord_street_number"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
-            android:hint="@string/landlord_phone"
+            android:hint="@string/landlord_street_no"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.184"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/landlord_street" />
 
         <EditText
+            android:id="@+id/zip"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="@string/zip"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.184"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/landlord_street_number" />
+
+        <EditText
+            android:id="@+id/landlord_phone"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="@string/landlord_phone"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.184"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/zip" />
+
+        <EditText
             android:id="@+id/landlord_email"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
             android:hint="@string/landlord_email"
@@ -80,7 +110,7 @@
 
         <EditText
             android:id="@+id/description"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
             android:hint="@string/description"
@@ -91,7 +121,7 @@
 
         <EditText
             android:id="@+id/places_amount"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
             android:hint="@string/places_amount"
@@ -107,6 +137,17 @@
         android:layout_width="match_parent"
         app:layout_constraintTop_toBottomOf="@id/form"
         android:text="" />
+
+    <ImageView
+        android:id="@+id/logo"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:src="@drawable/logo"
+
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:contentDescription="@string/my_image_description"
+        />
 
     <Button
         android:id="@+id/button_id"
