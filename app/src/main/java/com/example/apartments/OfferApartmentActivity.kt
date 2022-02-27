@@ -156,7 +156,7 @@ class OfferApartmentActivity : AppCompatActivity() {
                     //save response (with id)
                     val preferences = applicationContext.getSharedPreferences(getString(R.string.preferences),0)
                     val editor: SharedPreferences.Editor = preferences.edit()
-                    editor.putString(getString(R.string.aptKey), response.body().toString())
+                    editor.putString(getString(R.string.aptKey), (response.body() as ApartmentDTO).userFriendlyString() )
                     editor.apply()
 
                     nextIntent()

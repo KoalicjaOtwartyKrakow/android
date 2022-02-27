@@ -15,16 +15,16 @@ class ApartmentDTO {
     var APT_NUM = ""
     var ZIP = ""
 
-    //we can consume it but never send it
-    var ApartmentId = "123"
-    var StartTime =  "25/02/2022 18:09:07"
-    var VOLUNTEER_NAME = "123123"
+    //don't have to be filled
+    var ApartmentId = ""
+    var StartTime =  ""
+    var VOLUNTEER_NAME = ""
     var IS_BUSY = false
     var IS_VERIFIED = false
 
-    override fun toString(): String {
+    fun userFriendlyString(): String {
         val sb = StringBuilder()
-        sb.append(ZIP).append(" ").append(CITY).append(", ").append(ST_NAME).append(" ").append(ST_NUM)
+        sb.append("działa").append(ZIP).append(" ").append(CITY).append(", ").append(ST_NAME).append(" ").append(ST_NUM)
         return sb.toString()
     }//TODO display
 

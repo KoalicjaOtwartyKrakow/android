@@ -30,24 +30,16 @@
             android:id="@+id/volunteerEntryBtn"
             android:layout_width="250dp"
             android:layout_height="100dp"
+            android:visibility="gone"
             android:text="@string/volunteerEntryBtn"
             android:layout_marginBottom="30dp"/>
 
         <Button
             android:id="@+id/docBtn"
             android:layout_width="250dp"
+            android:visibility="gone"
             android:layout_height="100dp"
             android:text="@string/docBtn" />
 
-        <TextView
-            android:id="@+id/hashtag"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_margin="50dp"
-            android:textSize="22sp"
-            android:text="@string/coalition"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent"/>
 
 </LinearLayout>
