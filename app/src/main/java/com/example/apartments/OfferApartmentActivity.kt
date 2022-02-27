@@ -1,7 +1,6 @@
 package com.example.apartments
 
 import android.app.Activity
-import android.content.Context
 import android.content.Intent
 import android.content.SharedPreferences
 import android.os.Bundle
@@ -91,7 +90,7 @@ class OfferApartmentActivity : AppCompatActivity() {
                 valid = false
             }
 
-            if (!valid) {  //TODO CHANGE THIIIIS
+            if (valid) {
                 //read fields into DTO
                 val apartment = ApartmentDTO()
                 apartment.CNT_NAME = countyNameSpinner.getSelectedItem().toString()
@@ -132,7 +131,7 @@ class OfferApartmentActivity : AppCompatActivity() {
         })
     }
 
-    private fun startIntent() {
+    private fun nextIntent() {
         finish()
         //open review activity
         val intent = Intent(this, ReviewAddedAPTActivity::class.java)
@@ -155,20 +154,12 @@ class OfferApartmentActivity : AppCompatActivity() {
                     Log.d("Response", response.body().toString());
 
                     //save response (with id)
-//                    val sharedPref = activity.getPreferences(Context.MODE_PRIVATE) ?: return
-//                    with(sharedPref.edit()) {
-//                        putString(
-//                            getString(R.string.aptKey),
-//                            response.body().toString()
-//                        )  //this will be a list of strings
-//                        apply()
-//                    }
                     val preferences = applicationContext.getSharedPreferences(getString(R.string.preferences),0)
                     val editor: SharedPreferences.Editor = preferences.edit()
                     editor.putString(getString(R.string.aptKey), response.body().toString())
                     editor.apply()
 
-                    startIntent()
+                    nextIntent()
 
                 } catch (e: Exception) {
                     e.printStackTrace()

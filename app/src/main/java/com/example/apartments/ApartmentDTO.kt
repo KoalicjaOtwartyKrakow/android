@@ -22,4 +22,10 @@ class ApartmentDTO {
     var IS_BUSY = false
     var IS_VERIFIED = false
 
+    override fun toString(): String {
+        val sb = StringBuilder()
+        sb.append(ZIP).append(" ").append(CITY).append(", ").append(ST_NAME).append(" ").append(ST_NUM)
+        return sb.toString()
+    }//TODO display
+
 }
