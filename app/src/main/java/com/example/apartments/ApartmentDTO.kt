@@ -11,8 +11,8 @@ class ApartmentDTO {
     var LANDLORD_PHONE = ""
     var PLACES_NUM = 0
     var ST_NAME = ""
-    var ST_NUM = 0
-    var APT_NUM = 0
+    var ST_NUM = ""
+    var APT_NUM = ""
     var ZIP = ""
 
     //we can consume it but never send it
