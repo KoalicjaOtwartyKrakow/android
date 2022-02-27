@@ -1,7 +1,7 @@
 package com.example.apartments
 
 class ApartmentDTO {
-    //must have
+    //must have, wojewodztwo
     var CNT_NAME = ""
 
     //must have
