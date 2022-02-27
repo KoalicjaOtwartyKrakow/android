@@ -3,6 +3,7 @@ package com.example.apartments
 class ApartmentDTO {
     //must have
     var CNT_NAME = ""
+
     //must have
     var CITY = ""
     var DESCRIPTION = ""
@@ -17,14 +18,20 @@ class ApartmentDTO {
 
     //don't have to be filled
     var ApartmentId = ""
-    var StartTime =  ""
+    var StartTime = ""
     var VOLUNTEER_NAME = ""
     var IS_BUSY = false
     var IS_VERIFIED = false
 
     fun userFriendlyString(): String {
         val sb = StringBuilder()
-        sb.append("działa").append(ZIP).append(" ").append(CITY).append(", ").append(ST_NAME).append(" ").append(ST_NUM)
+        sb.append(CNT_NAME).append(", ")
+            .append(CITY).append(", ")
+            .append(ST_NAME).append(" ")
+            .append(ST_NUM).append(", ")
+            .append(
+                "$PLACES_NUM miejsc"
+            )
         return sb.toString()
     }//TODO display
 

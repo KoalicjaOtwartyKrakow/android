@@ -25,4 +25,5 @@
     <string name="coalition">#KoalicjaOtwartyKrakow</string>
     <string name="aptKey">aptKey</string>
     <string name="preferences">preferences</string>
+    <string name="ChooseCounty">Wybierz województwo</string>
 </resources>
