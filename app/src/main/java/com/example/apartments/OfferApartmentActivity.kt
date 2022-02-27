@@ -1,15 +1,14 @@
 package com.example.apartments
 
 import android.app.Activity
+import android.app.ProgressDialog
 import android.content.Intent
 import android.content.SharedPreferences
 import android.os.Bundle
 import android.text.TextUtils
 import android.util.Log
-import android.widget.ArrayAdapter
-import android.widget.Button
-import android.widget.Spinner
-import android.widget.TextView
+import android.view.View
+import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
 import retrofit2.Call
 import retrofit2.Callback
@@ -24,6 +23,8 @@ class OfferApartmentActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_offer_apartment)
+
+        val progressBar: ProgressBar = findViewById(R.id.progressBar)
 
         val countyNameSpinner: Spinner = findViewById(R.id.county_name)
         countyNameSpinner.adapter = ArrayAdapter<Voivodeship>(
@@ -106,7 +107,7 @@ class OfferApartmentActivity : AppCompatActivity() {
                 apartment.ZIP = apt_zip.text.toString()
 
                 //send
-                postAnApartment(service, apartment, this)
+                postAnApartment(service, apartment, progressBar)
             }
         }
     }
@@ -141,8 +142,9 @@ class OfferApartmentActivity : AppCompatActivity() {
     private fun postAnApartment(
         service: ApartmentService,
         apartment: ApartmentDTO,
-        activity: Activity
+        progressBar: ProgressBar
     ) {
+        progressBar.visibility = View.VISIBLE
         val postApartmentCall: Call<ApartmentDTO> = service.postAnApartment(apartment)
         postApartmentCall.enqueue(object : Callback<ApartmentDTO> {
 
@@ -152,12 +154,13 @@ class OfferApartmentActivity : AppCompatActivity() {
             ) {
                 try {
                     Log.d("Response", response.body().toString());
-
                     //save response (with id)
                     val preferences = applicationContext.getSharedPreferences(getString(R.string.preferences),0)
                     val editor: SharedPreferences.Editor = preferences.edit()
                     editor.putString(getString(R.string.aptKey), (response.body() as ApartmentDTO).userFriendlyString() )
                     editor.apply()
+
+                    progressBar.visibility = View.GONE
 
                     nextIntent()
 
@@ -169,6 +172,7 @@ class OfferApartmentActivity : AppCompatActivity() {
 
             override fun onFailure(call: Call<ApartmentDTO>, t: Throwable) {
                 println(t.localizedMessage)
+                progressBar.visibility = View.GONE
             }
         })
     }

@@ -20,7 +20,7 @@
     <string name="landlord_apt_no">Numer mieszkania</string>
     <string name="review">tutaj będzie się znajdować lista mieszkań które zgłosiłeś</string>
     <string name="thanks">Dziękujemy! Dodałeś lokal. Prosimy czekać na kontakt</string>
-    <string name="OneMoreAptBtn">Chcę zaproponować jeszcze jedno miejsce</string>
+    <string name="OneMoreAptBtn">Chcę zaproponować jeszcze jeden lokal</string>
     <string name="docBtn">Pobierz wzor umowy udostępnienia lokalu</string>
     <string name="coalition">#KoalicjaOtwartyKrakow</string>
     <string name="aptKey">aptKey</string>
