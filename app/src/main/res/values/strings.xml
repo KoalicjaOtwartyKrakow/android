@@ -1,0 +1,29 @@
+<resources>
+    <string name="app_name">Apartments</string>
+    <string name="title_activity_offer">Zaproponuj mieszkanie</string>
+    <string name="name">imie i nazwisko</string>
+    <string name="landlord_street">ulica</string>
+    <string name="landlord_email">email</string>
+    <string name="landlord_phone">telefon</string>
+    <string name="description">opis miejsca zamieszkania</string>
+    <string name="places_amount">ilość miejść</string>
+    <string name="county_name">wojewodztwo</string>
+    <string name="city">miasto</string>
+    <string name="button">wyślij</string>
+    <string name="my_image_description">u-logo</string>
+    <string name="textWstup">Jeśli masz możliwość udostępnienia lokalu mieszkalnego osobie lub rodzinie z Ukrainy, prosimy o wypełnienie formularza. Jeśli masz ograniczenia co do tego kogo możesz przyjąć (np. ludzie ze zwierzętami domowymi), zaznacz to proszę w opisie lokalu. Dziękujemy!</string>
+    <string name="landlord_street_no">numer budynku</string>
+    <string name="zip">kod pocztowy</string>
+    <string name="choose">Wybierz akcję</string>
+    <string name="volunteerEntryBtn">Jestem koordynatorem</string>
+    <string name="LandlordEntryBtn">Chcę zaproponować lokal</string>
+    <string name="landlord_apt_no">Numer mieszkania</string>
+    <string name="review">tutaj będzie się znajdować lista mieszkań które zgłosiłeś</string>
+    <string name="thanks">Dziękujemy! Dodałeś lokal. Prosimy czekać na kontakt</string>
+    <string name="OneMoreAptBtn">Chcę zaproponować jeszcze jeden lokal</string>
+    <string name="docBtn">Pobierz wzor umowy udostępnienia lokalu</string>
+    <string name="coalition">#KoalicjaOtwartyKrakow</string>
+    <string name="aptKey">aptKey</string>
+    <string name="preferences">preferences</string>
+    <string name="ChooseCounty">Wybierz województwo</string>
+</resources>
